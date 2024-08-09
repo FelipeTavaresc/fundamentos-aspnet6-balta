@@ -13,5 +13,14 @@ namespace Todo.Controllers
         {
             return context.Todos.ToList();
         }
+
+        [HttpPost]
+        [Route("/")]
+        public TodoModel Post([FromBody] TodoModel model, [FromServices] AppDbContext context)
+        {
+            context.Todos.Add(model);
+            context.SaveChanges();
+            return model;
+        }
     }
 }
