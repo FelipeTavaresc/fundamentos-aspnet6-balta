@@ -66,7 +66,7 @@ namespace Blog.Controllers
                 return Created($"v1/categories/{category.Id}", category);
 
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 return StatusCode(500, "05XE9 - Não foi possível incluir a categoria");
             }
