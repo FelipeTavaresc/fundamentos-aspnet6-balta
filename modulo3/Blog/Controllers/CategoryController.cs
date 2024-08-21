@@ -1,4 +1,5 @@
 ﻿using Blog.Data;
+using Blog.Extensions;
 using Blog.Models;
 using Blog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -51,6 +52,9 @@ namespace Blog.Controllers
             [FromBody] EditorCategoryViewModel model,
             [FromServices] BlogDataContext context)
         {
+            if(!ModelState.IsValid) 
+                return BadRequest(new ResultViewModel<Category>(ModelState.GetErros()));
+
             try
             {
                 var category = new Category
