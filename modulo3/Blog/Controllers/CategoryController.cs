@@ -35,14 +35,14 @@ namespace Blog.Controllers
                     .FirstOrDefaultAsync(x => x.Id == id);
 
                 if (category == null)
-                    return NotFound();
+                    return NotFound(new ResultViewModel<Category>("Categoria não encontrada"));
 
-                return Ok(category);
+                return Ok(new ResultViewModel<Category>(category));
 
             }
-            catch (Exception)
+            catch
             {
-                return StatusCode(500, "Falha interna no servidor");
+                return StatusCode(500, new ResultViewModel<Category>("Falha interna no servidor"));
             }
         }
 
