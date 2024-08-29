@@ -18,6 +18,7 @@ namespace Blog.Services
                 {
                     new Claim(ClaimTypes.Name, "felipe"),
                     new Claim(ClaimTypes.Role, "admin"),
+                    new Claim(ClaimTypes.Role, "user"),
                     new Claim("fruta", "banana")
                 }),
                 Expires = DateTime.UtcNow.AddHours(8),
