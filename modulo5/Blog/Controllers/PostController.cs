@@ -16,15 +16,6 @@ namespace Blog.Controllers
                 .AsNoTracking()
                 .Include(x => x.Category)
                 .Include(x => x.Author)
-                .Select(x => new ListPostsViewModel
-                {
-                    Id = x.Id,
-                    Title = x.Title,
-                    Slug = x.Slug,
-                    LastUpdateDate = x.LastUpdateDate,
-                    Category = x.Category.Name,
-                    Author = $"{x.Author.Name} ({x.Author.Email})"
-                })
                 .ToListAsync();
 
             return Ok(posts);
