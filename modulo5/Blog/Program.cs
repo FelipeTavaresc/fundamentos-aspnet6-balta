@@ -16,8 +16,10 @@ ConfigureServices(builder);
 var app = builder.Build();
 LoadConfiguration(app);
 
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapControllers();
 app.UseResponseCompression();
 app.UseStaticFiles();
 app.MapControllers();
