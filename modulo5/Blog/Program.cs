@@ -21,6 +21,10 @@ app.UseAuthorization();
 app.UseResponseCompression();
 app.UseStaticFiles();
 app.MapControllers();
+
+if (app.Environment.IsDevelopment())
+    Console.WriteLine("Env: Desenvolvimento");
+
 app.Run();
 
 void LoadConfiguration(WebApplication app)
